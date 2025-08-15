@@ -46,3 +46,5 @@ export default function SettingsDifficulty() {
     </section>
   );
 }
+
+// onClick = { handleStart };

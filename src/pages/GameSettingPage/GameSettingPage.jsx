@@ -38,24 +38,20 @@ const GameSettingPage = () => {
       }, 1000); // Невелика затримка між лоадерами
     }, 1000); // Показ першого лоадера 1с
   };
-
   return (
     <section className={css.container}>
       {showLoading && <LoadingScreen />}
       {showStatusLoading && <GameStatusLoading />}
-
       {showModal && (
         <SettingsDifficulty
           onClose={() => setShowModal(false)}
           onStart={handleStart}
         />
       )}
-
       {showGlobalLoader && <Loader />}
       {/* MagicMemoryGame компонент самої гри в карти */}
       {startGame && settings && <MagicMemoryGame />}
     </section>
   );
 };
-
 export default GameSettingPage;

@@ -11,6 +11,9 @@
   z-index: 9999;
   padding: 16px;
   box-sizing: border-box;
+  /* background: url("/src/assets/game/GirlMavka.png");
+  background: url("/src/assets/game/PigeonGirl.png") */
+  /* background: url("/src/assets/game/Card.png") center/cover no-repeat; */
 }
 .modalOverlay::after {
   content: "";
