@@ -1,0 +1,140 @@
+.modalSection {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 830px;
+  height: 370px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 852px;
+  height: 395px;
+  background: url("/src/assets/emages/BacgrBlue.png") center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modalOverlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/src/assets/emages/MaskStars.png") center/cover no-repeat;
+  mix-blend-mode: screen;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.settingsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px 15px;
+}
+
+.settingsTitle {
+  top: 0;
+  bottom: -20px;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 120%;
+  text-align: center;
+  margin-bottom: 40px;
+  color: white;
+}
+
+.levelsGrid {
+  top: -20px;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 35px;
+  background: url("/src/assets/emages/GroupBacgrSetting.png") center/contain
+    no-repeat;
+}
+.cardsBd {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: url("/src/assets/emages/GroupBacgrSetting.png") center/contain
+    no-repeat;
+  top: -10px;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.levelCard {
+  width: 116px;
+  height: 136px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 10%;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.levelCard:hover {
+  transform: scale(1.05);
+}
+
+.levelTop {
+  width: 116px;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(8, 167, 235, 0.975);
+  border-radius: 30%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px;
+  border: 2px;
+  gap: 2px;
+  border-color: hsla(61, 93%, 49%, 0.94);
+}
+
+.levelNumber {
+  margin: 0px;
+  margin-left: 10px;
+  padding: 0px;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  color: white;
+}
+
+.levelIcon {
+  margin: 0px;
+  margin-right: 10px;
+  padding: 0px;
+  width: 45px;
+  height: 45px;
+  background: url("/src/assets/emages/CardIcon.png") center/contain no-repeat;
+}
+
+.levelBottom {
+  text-align: center;
+  padding: 6px 4px;
+  border-bottom-left-radius: 10%;
+  border-bottom-right-radius: 10%;
+  font-family: "Fredoka", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: white;
+}
