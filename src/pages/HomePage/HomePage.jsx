@@ -5,6 +5,7 @@ import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import LoaderBaground from "../../components/LoaderBaground/LoaderBaground";
+import playIcon from "/src/assets/emages/btnStart.png";
 
 export default function HomePage() {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ export default function HomePage() {
     setLoading(true);
     setTimeout(() => {
       toast.success("Сustomize the game for yourself");
-      navigate("/gamesetting");
+      navigate("/gamestart");
     }, 2000); // плавний перехід після 2с
   };
 
@@ -37,9 +38,15 @@ export default function HomePage() {
       {loading ? (
         <LoaderBaground />
       ) : (
-        <div className={css.card}>
-          <div className={css.titleGlow}></div>
-          <div onClick={handleGameStart} className={css.gameStart}></div>
+        <div className={css.sectionBlok}>
+          <h1 className={css.title}>Magic Memory</h1>
+          <button
+            onClick={handleGameStart}
+            className={css.buttonStart}
+            type="button"
+          >
+            <img src={playIcon} alt="" className={css.arrow} />
+          </button>
         </div>
       )}
     </section>

@@ -2,9 +2,11 @@ import { useEffect, useState } from "react";
 import css from "./WinModal.module.css";
 import restartSound from "/src/assets/audio/mixKids.mp3.wav";
 import playIcon from "/src/assets/emages/play.png";
+import { useNavigate } from "react-router-dom";
 
-export const WinModal = ({ onRestart }) => {
+export const WinModal = () => {
   const [showButton, setShowButton] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -15,12 +17,12 @@ export const WinModal = ({ onRestart }) => {
   }, []);
 
   //  основна логіка
-  const handleGameFinall = () => {
+  const handleGameRestart = () => {
     const audio = new Audio(restartSound);
     audio.play().catch(e => console.warn("Autoplay blocked:", e));
 
     setTimeout(() => {
-      onRestart();
+      navigate("/");
     }, 4000);
   };
   // Генеруємо масив з рандомними стилями для кожного конфеті
@@ -72,7 +74,7 @@ export const WinModal = ({ onRestart }) => {
       <div className={css.sectionBlok}>
         <h1 className={css.title}>Congratulations!</h1>
         <button
-          onClick={handleGameFinall}
+          onClick={handleGameRestart}
           className={`${css.button} ${showButton ? css.visible : ""}`}
           aria-hidden={!showButton}
           tabIndex={showButton ? 0 : -1}

@@ -1,16 +1,17 @@
 .heroWrapper {
-  margin-top: 50px;
-  width: 70px;
-  height: 250px;
-  position: relative;
+  position: absolute; /* або fixed, якщо має бути завжди поверх над потоком */
+  top: -70px;
+  left: 50%; /* центр по горизонталі */
+  transform: translateX(-50%); /* справжнє вирівнювання по центру */
+  width: 60px;
+  height: 60px;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  text-align: center;
   animation: heroIntroMove 1.8s ease-out forwards;
   background-repeat: no-repeat;
   background-position: center;
+  z-index: 20; /* поверх картки */
 }
 
 .heroImageWrapper {
@@ -27,7 +28,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-image: url("/src/assets/emages/StarSmaile.png");
+  background-image: url("/src/assets/emages/SmileEffect.png");
   background-size: 120%;
   background-repeat: no-repeat;
   background-position: center;

@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 import Loader from "../Loader/Loader";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
+const PageCard = lazy(() => import("../../pages/PageCard/PageCard"));
 const MagicMemoryGame = lazy(() =>
   import("../MagicMemoryGame/MagicMemoryGame")
 );
@@ -23,6 +24,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
 
+          <Route path="/gamestart" element={<PageCard />} />
           <Route path="/gamesetting" element={<GameSettingPage />} />
           <Route path="/game" element={<MagicMemoryGame />} />
           <Route path="/result" element={<GameResultPage />} />
