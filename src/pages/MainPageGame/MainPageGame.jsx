@@ -1,14 +1,13 @@
 import { useState } from "react";
-import css from "./GameSettingPage.module.css";
-// import TicTacToeGame from "../../components/TicTacToeGame/TicTacToeGame";
+import css from "./MainPageGame.module.css";
 // import GameSettingsModal from "../../components/GameSettingsModal/GameSettingsModal";
 import GameStatusLoading from "../../components/GameStatusLoading/GameStatusLoading";
 import LoadingScreen from "../../components/LoadingScreen/LoadingScreen";
 import Loader from "../../components/Loader/Loader";
-import SettingsDifficulty from "../../components/SettingsDifficulty/SettingsDifficulty";
 import MagicMemoryGame from "../../components/MagicMemoryGame/MagicMemoryGame";
+import SettingsDifficulty from "../../components/SettingsDifficulty/SettingsDifficulty";
 
-const GameSettingPage = () => {
+const MainPageGame = () => {
   const [settings, setSettings] = useState(null);
   const [showModal, setShowModal] = useState(true);
   const [showLoading, setShowLoading] = useState(false);
@@ -28,7 +27,6 @@ const GameSettingPage = () => {
       // Показати GameStatusLoading після короткої паузи (щоб не мерехтіло)
       setTimeout(() => {
         setShowStatusLoading(true);
-
         // Дати гравцеві побачити статус і потім старт гри
         setTimeout(() => {
           setShowStatusLoading(true);
@@ -38,6 +36,7 @@ const GameSettingPage = () => {
       }, 1000); // Невелика затримка між лоадерами
     }, 1000); // Показ першого лоадера 1с
   };
+
   return (
     <section className={css.container}>
       {showLoading && <LoadingScreen />}
@@ -48,10 +47,19 @@ const GameSettingPage = () => {
           onStart={handleStart}
         />
       )}
+
+      {/* {showModal && (
+        <GameSettingsModal
+          onClose={() => setShowModal(false)}
+          onStart={handleStart}
+        />
+      )} */}
+
       {showGlobalLoader && <Loader />}
-      {/* MagicMemoryGame компонент самої гри в карти */}
-      {startGame && settings && <MagicMemoryGame />}
+
+      {startGame && settings && <MagicMemoryGame settings={settings} />}
     </section>
   );
 };
-export default GameSettingPage;
+
+export default MainPageGame;

@@ -3,16 +3,8 @@ import { lazy, Suspense } from "react";
 import Loader from "../Loader/Loader";
 
 const HomePage = lazy(() => import("../../pages/HomePage/HomePage"));
-const PageCard = lazy(() => import("../../pages/PageCard/PageCard"));
-const MagicMemoryGame = lazy(() =>
-  import("../MagicMemoryGame/MagicMemoryGame")
-);
-
-const GameSettingPage = lazy(() =>
-  import("../../pages/GameSettingPage/GameSettingPage")
-);
-const GameResultPage = lazy(() =>
-  import("../../pages/GameResultPage/GameResultPage")
+const MainPageGame = lazy(() =>
+  import("../../pages/MainPageGame/MainPageGame")
 );
 
 const NotFoundPage = lazy(() => import("../../pages/NotFoundPage"));
@@ -24,10 +16,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
 
-          <Route path="/gamestart" element={<PageCard />} />
-          <Route path="/gamesetting" element={<GameSettingPage />} />
-          <Route path="/game" element={<MagicMemoryGame />} />
-          <Route path="/result" element={<GameResultPage />} />
+          <Route path="/mainpagegame" element={<MainPageGame />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

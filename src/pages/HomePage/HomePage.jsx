@@ -16,9 +16,9 @@ export default function HomePage() {
     audio.play().catch(e => console.warn("Autoplay blocked:", e));
     setLoading(true);
     setTimeout(() => {
-      toast.success("Сustomize the game for yourself");
-      navigate("/gamestart");
-    }, 2000); // плавний перехід після 2с
+      toast.success("Customize the game for yourself");
+      navigate("/mainpagegame");
+    }, 2000);
   };
 
   return (

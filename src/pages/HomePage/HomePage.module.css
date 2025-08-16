@@ -78,7 +78,7 @@
   align-items: center;
   justify-content: center; /* вертикальне центрування */
   text-align: center;
-  width: 76px;
+  width: 304px;
   height: 177px;
   margin-top: -70px;
   margin-left: -40px;
@@ -98,7 +98,8 @@
   text-align: center;
   color: #fafafa;
   background: url("/src/assets/emages/TitleBagrPhone.png") center center
-    no-repeat;
+      no-repeat,
+    url("/src/assets/emages/BagrTitleHomePage.png") center center no-repeat;
   background-size: contain; /* фон підлаштується під розмір блоку */
 }
 

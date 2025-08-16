@@ -1,6 +1,5 @@
-import css from "./SettingsDifficulty.module.css";
-// import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import css from "./SettingsDifficulty.module.css";
 import startSound from "/src/assets/audio/startGame.mp3.wav";
 
 const levels = [
@@ -11,54 +10,47 @@ const levels = [
   { id: 5, pairs: 10, cardsCount: 12, label: "Very Hard" },
 ];
 
-export default function SettingsDifficulty() {
-  // const navigate = useNavigate();
-  // const handleSelect = pairs => {
-  //   const audio = new Audio(startSound);
-  //   audio.play().catch(e => console.warn("Autoplay blocked:", e));
-  //   navigate(`/game?pairs=${pairs}`);
-  // };
+const SettingsDifficulty = ({ onClose, onStart }) => {
+  // Локальна функція запуску: звук + виклик пропсу onStart
+  const handleStart = lvl => {
+    const audio = new Audio(startSound);
+    audio.play().catch(e => console.warn("Autoplay blocked:", e));
+    // передаємо налаштування батьківському компоненту
+    if (onStart) onStart(lvl);
+    // закриваємо модалку
+    if (onClose) onClose();
+  };
 
   return (
     <section className={css.modalSection}>
       <div className={css.modalOverlay}>
         <section className={css.settingsContainer}>
           <h2 className={css.settingsTitle}>CHOOSE LEVEL</h2>
-          {/* <div className={css.cardsBdr}> */}
+
           <ul className={css.levelsGrid}>
             {levels.map(lvl => (
-              <Link
-                key={lvl.id}
-                to={`/game?pairs=${lvl.pairs}`}
-                className={css.levelCard} // стилі на лінк
-                onClick={() => {
-                  const audio = new Audio(startSound);
-                  audio.play().catch(() => {});
-                }}
-              >
-                <li className={css.levelTop}>
-                  <span className={css.levelNumber}>{lvl.cardsCount}</span>
-                  <div className={css.levelIcon}></div>
-                </li>
-                <div className={css.levelBottom}>{lvl.label}</div>
-              </Link>
+              <li key={lvl.id} className={css.levelCar}>
+                <Link
+                  to={`/game?pairs=${lvl.pairs}`}
+                  className={css.levelCard}
+                  onClick={e => {
+                    e.preventDefault(); // не даємо <Link> одразу перейти
+                    handleStart(lvl); // передаємо рівень у handleStart
+                  }}
+                >
+                  <div className={css.levelTop}>
+                    <span className={css.levelNumber}>{lvl.cardsCount}</span>
+                    <div className={css.levelIcon}></div>
+                  </div>
+                  <div className={css.levelBottom}>{lvl.label}</div>
+                </Link>
+              </li>
             ))}
           </ul>
-          {/* </div> */}
         </section>
       </div>
     </section>
   );
-}
+};
 
-// onClick = { handleStart };
-
-{
-  /* <ul className={css.levelsGrid}>
-            {levels.map(lvl => (
-              <li
-                key={lvl.id}
-                className={css.levelCard}
-                onClick={() => handleSelect(lvl.pairs)}
-              ></li> */
-}
+export default SettingsDifficulty;
