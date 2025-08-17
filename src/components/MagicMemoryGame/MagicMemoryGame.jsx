@@ -40,16 +40,20 @@ const MagicMemoryGame = ({ settings }) => {
 
   // Ініціалізація карт при завантаженні
   useEffect(() => {
+    if (!settings) return;
+
     clickSoundRef.current = new Audio("/src/assets/audio/allclicks.mp3.wav");
     winAudioRef.current = new Audio(winSound);
 
-    const deck = cardImages
+    const pairCount = settings.pairs; // беремо кількість пар з вибраного рівня
+    const selectedImages = cardImages.slice(0, pairCount);
+
+    const deck = [...selectedImages, ...selectedImages]
       .map(img => ({ id: Math.random(), img, flipped: false, matched: false }))
       .sort(() => Math.random() - 0.5);
 
     setCards(deck);
-  }, []);
-
+  }, [settings]);
   // Обробка кліку на карту
   const handleClick = card => {
     if (disabled || card.flipped || card.matched) return;
@@ -58,13 +62,11 @@ const MagicMemoryGame = ({ settings }) => {
       clickSoundRef.current.currentTime = 0;
       clickSoundRef.current.play().catch(() => {});
     }
-
     // Перевертаємо картку
     const newCards = cards.map(c =>
       c.id === card.id ? { ...c, flipped: true } : c
     );
     setCards(newCards);
-
     // Вибір першої/другої карти
     if (!firstChoice) {
       setFirstChoice(card);
@@ -104,14 +106,12 @@ const MagicMemoryGame = ({ settings }) => {
       }
     }
   };
-
   // Скидання вибору
   const resetTurn = () => {
     setFirstChoice(null);
     setSecondChoice(null); // використовується для коректного скидання
     setDisabled(false);
   };
-
   // Перевірка перемоги
   useEffect(() => {
     if (cards.length && cards.every(c => c.matched)) {
@@ -130,11 +130,18 @@ const MagicMemoryGame = ({ settings }) => {
       }, 2500);
     }
   }, [cards]);
+
   useEffect(() => {
     if (secondChoice) {
       console.log("Second choice updated:", secondChoice);
     }
   }, [secondChoice]);
+
+  useEffect(() => {
+    if (matchedPair) {
+      console.log("A pair of images matched:", matchedPair);
+    }
+  }, [matchedPair]);
 
   const theme = settings?.theme || "default";
   const themeClass = `game_container theme_${theme}`;
@@ -155,8 +162,8 @@ const MagicMemoryGame = ({ settings }) => {
                     onClick={() => handleClick(card)}
                     aria-label="Card"
                   >
-                    {/* показуємо смайлик над конкретною парою */}
-                    {showSmile && matchedPair.includes(card.id) && (
+                    {/* смайлик тільки над другою співпавшою картою */}
+                    {showSmile && card.id === secondChoice?.id && (
                       <StarkHeroEffect />
                     )}
 

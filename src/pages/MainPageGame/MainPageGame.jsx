@@ -48,13 +48,6 @@ const MainPageGame = () => {
         />
       )}
 
-      {/* {showModal && (
-        <GameSettingsModal
-          onClose={() => setShowModal(false)}
-          onStart={handleStart}
-        />
-      )} */}
-
       {showGlobalLoader && <Loader />}
 
       {startGame && settings && <MagicMemoryGame settings={settings} />}

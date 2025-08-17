@@ -3,11 +3,11 @@ import css from "./SettingsDifficulty.module.css";
 import startSound from "/src/assets/audio/startGame.mp3.wav";
 
 const levels = [
-  { id: 1, pairs: 3, cardsCount: 4, label: "Very Easy" },
-  { id: 2, pairs: 4, cardsCount: 6, label: "Easy" },
-  { id: 3, pairs: 6, cardsCount: 8, label: "Normal" },
-  { id: 4, pairs: 8, cardsCount: 10, label: "Hard" },
-  { id: 5, pairs: 10, cardsCount: 12, label: "Very Hard" },
+  { id: 1, pairs: 2, cardsCount: 4, label: "Very Easy" },
+  { id: 2, pairs: 3, cardsCount: 6, label: "Easy" },
+  { id: 3, pairs: 4, cardsCount: 8, label: "Normal" },
+  { id: 4, pairs: 5, cardsCount: 10, label: "Hard" },
+  { id: 5, pairs: 6, cardsCount: 12, label: "Very Hard" },
 ];
 
 const SettingsDifficulty = ({ onClose, onStart }) => {
