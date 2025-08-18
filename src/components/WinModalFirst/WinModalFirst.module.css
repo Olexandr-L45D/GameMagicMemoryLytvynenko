@@ -10,7 +10,7 @@
   align-items: center;
   background: url("/src/assets/emages/MaskMountains.png") center/cover no-repeat;
   box-sizing: border-box;
-  margin-left: -10px;
+  /* margin-left: -10px; */
   overflow: hidden;
   z-index: 5000;
 }

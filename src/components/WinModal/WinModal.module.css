@@ -12,7 +12,7 @@
   /* background: url("/src/assets/emages/FonBacgCogratMidle.png") center/cover */
   /* no-repeat; */
   background: url("/src/assets/emages/MaskMountains.png") center/cover no-repeat;
-  margin-left: -20px;
+  /* margin-left: -20px; */
   /* z-index: 1000; */
   z-index: 9999; /* гарантовано поверх всіх інших */
 }
