@@ -14,7 +14,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 820px;
+  width: 825px;
   height: 375px;
   background: url("/src/assets/emages/BacgrBlue.png") center/cover no-repeat;
   display: flex;
@@ -51,7 +51,7 @@
 
 .levelsGrid {
   top: -20px;
-  width: 830px;
+  width: 825px;
   height: 250px;
   display: flex;
   flex-direction: row;

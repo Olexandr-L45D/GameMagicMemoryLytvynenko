@@ -28,30 +28,22 @@ const MagicMemoryGame = ({ settings }) => {
   const [firstChoice, setFirstChoice] = useState(null);
   const [secondChoice, setSecondChoice] = useState(null); // зберігаємо другу карту
   const [disabled, setDisabled] = useState(false);
-
   const [showSmile, setShowSmile] = useState(false); // смайлик над парою
   const [matchedPair, setMatchedPair] = useState([]); // id пари для смайлика
-
   const [showLoadingFirst, setshowLoadingFirst] = useState(false);
   const [showLoadingSecond, setshowLoadingSecond] = useState(false);
-
   const clickSoundRef = useRef(null);
   const winAudioRef = useRef(null);
-
   // Ініціалізація карт при завантаженні
   useEffect(() => {
     if (!settings) return;
-
     clickSoundRef.current = new Audio("/src/assets/audio/allclicks.mp3.wav");
     winAudioRef.current = new Audio(winSound);
-
     const pairCount = settings.pairs; // беремо кількість пар з вибраного рівня
     const selectedImages = cardImages.slice(0, pairCount);
-
     const deck = [...selectedImages, ...selectedImages]
       .map(img => ({ id: Math.random(), img, flipped: false, matched: false }))
       .sort(() => Math.random() - 0.5);
-
     setCards(deck);
   }, [settings]);
   // Обробка кліку на карту
@@ -145,9 +137,9 @@ const MagicMemoryGame = ({ settings }) => {
 
   const theme = settings?.theme || "default";
   const themeClass = `game_container theme_${theme}`;
-  // add new style to card-Blocks
+  //if I want to hardcode an expression in js = add new style to card-Blocks
   const columns = Math.ceil(cards.length / 2);
-  const maxColumns = 6; // або 6 в залежності від макету
+  const maxColumns = 6; // або іншу цифру в залежності від макету
 
   return (
     <section className={css.gameWrapper}>
