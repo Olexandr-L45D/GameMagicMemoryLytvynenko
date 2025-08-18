@@ -1,6 +1,6 @@
 {
-  "appId": "com.example.tictactoe",
-  "appName": "TicTacToeGame",
+  "appId": "com.magicmemory.app",
+  "appName": "MagicMemory",
   "webDir": "dist",
   "bundledWebRuntime": false
 }

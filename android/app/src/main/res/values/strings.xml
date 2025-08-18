@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">MagicMemory</string>
+    <string name="title_activity_main">MagicMemory</string>
+    <string name="package_name">com.magicmemory.app</string>
+    <string name="custom_url_scheme">com.magicmemory.app</string>
+</resources>
