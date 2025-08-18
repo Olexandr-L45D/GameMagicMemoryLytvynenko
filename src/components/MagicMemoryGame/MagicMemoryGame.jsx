@@ -145,6 +145,9 @@ const MagicMemoryGame = ({ settings }) => {
 
   const theme = settings?.theme || "default";
   const themeClass = `game_container theme_${theme}`;
+  // add new style to card-Blocks
+  const columns = Math.ceil(cards.length / 2);
+  const maxColumns = 6; // або 6 в залежності від макету
 
   return (
     <section className={css.gameWrapper}>
@@ -152,7 +155,15 @@ const MagicMemoryGame = ({ settings }) => {
         <section className={css.wrapper}>
           <section className={themeClass}>
             <section className={css.gridWrapper}>
-              <div className={css.grid}>
+              <div
+                className={css.grid}
+                style={{
+                  gridTemplateColumns: `repeat(${Math.min(
+                    columns,
+                    maxColumns
+                  )}, 100px)`,
+                }}
+              >
                 {cards.map(card => (
                   <button
                     key={card.id}
@@ -162,7 +173,6 @@ const MagicMemoryGame = ({ settings }) => {
                     onClick={() => handleClick(card)}
                     aria-label="Card"
                   >
-                    {/* смайлик тільки над другою співпавшою картою */}
                     {showSmile && card.id === secondChoice?.id && (
                       <StarkHeroEffect />
                     )}

@@ -8,13 +8,14 @@ const GameStatusLoading = () => {
   const handleGameStart = () => {
     const audio = new Audio(restartSound);
     audio.play().catch(e => console.warn("Autoplay blocked:", e));
+    navigate("/");
 
-    const confirmed = window.confirm(
-      "Do you want to go back to the beginning of the game?"
-    );
-    if (confirmed) {
-      navigate("/");
-    }
+    // const confirmed = window.confirm(
+    //   "Do you want to go back to the beginning of the game?"
+    // );
+    // if (confirmed) {
+    //   navigate("/");
+    // }
   };
   return (
     <section className={css.statusWrapper}>

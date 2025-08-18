@@ -2,9 +2,10 @@
 .container {
   position: fixed;
   top: 0;
+  /* top: -10px; */
   left: 0;
-  width: 830px;
-  height: 380px;
+  width: 825px;
+  height: 375px;
   display: flex;
   justify-content: center;
   align-items: center;

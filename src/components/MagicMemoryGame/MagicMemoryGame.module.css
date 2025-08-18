@@ -1,14 +1,13 @@
-/*Загальний  Контейнер гри */
 .gameWrapper {
   transition: transform 1s ease, opacity 1s ease;
 }
 .containerGame {
+  width: 825px;
+  height: 375px;
   position: relative;
   padding: 0px;
   margin: 0px;
   margin-right: 40px;
-  width: 830px;
-  height: 380px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -24,12 +23,12 @@
   justify-items: center;
   gap: 0;
   position: relative;
-  margin-top: 84px;
-  margin-bottom: 25px;
+  margin-top: 75px;
+  margin-bottom: 35px;
 }
 .gridWrapper {
   position: relative;
-  width: 690px;
+  width: 680px;
   height: 220px;
   margin: 0 auto;
   margin-top: 5px;
@@ -45,8 +44,8 @@
   display: grid;
   grid-template-columns: repeat(6, 100px); /* 6 карток в ряд */
   grid-template-rows: repeat(2, 100px); /* 2 рядки */
-  column-gap: 17px;
-  row-gap: 17px;
+  column-gap: 12px;
+  row-gap: 12px;
   z-index: 3;
 }
 
@@ -104,7 +103,6 @@
 
 .cell.hidden {
   opacity: 0; /* прозорий */
-  /* pointer-events: none;  */
 }
 
 .cell.visible {
@@ -119,7 +117,6 @@
   box-shadow: none;
 }
 
-/* Іконки всередині клітинок  збільшити */
 .cell svg {
   width: 100px;
   height: 100px;
@@ -156,8 +153,8 @@
 }
 
 .cell.winner::before {
-  width: 110px;
-  height: 110px;
+  width: 100px;
+  height: 100px;
   display: flex;
   align-items: center;
   justify-content: center;
