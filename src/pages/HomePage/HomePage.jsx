@@ -15,8 +15,11 @@ export default function HomePage() {
     const audio = new Audio(startSound);
     audio.play().catch(e => console.warn("Autoplay blocked:", e));
     setLoading(true);
+
     setTimeout(() => {
-      toast.success("Customize the game for yourself");
+      toast.info(
+        "Hello! For convenience, rotate the screen horizontally and customize the game for yourself"
+      );
       navigate("/mainpagegame");
     }, 2000);
   };
@@ -25,7 +28,7 @@ export default function HomePage() {
     <section className={css.container}>
       <ToastContainer
         position="top-right"
-        autoClose={5000} // 5 seconds
+        autoClose={4000} // 4 seconds
         hideProgressBar={false}
         newestOnTop={true}
         closeOnClick
@@ -52,3 +55,13 @@ export default function HomePage() {
     </section>
   );
 }
+
+// import { GiCardPick } from "react-icons/gi"; // тематична іконка під гру на Память
+/* Іконка fore HEAD*/
+
+/* <div style={{ display: "flex", alignItems: "center", padding: "10px" }}>
+        <GiCardPick
+          style={{ marginRight: "8px", fontSize: "2rem", color: "#ff9800" }}
+        />
+        <h1 style={{ margin: 0, fontSize: "1.8rem" }}>Memory Game</h1>
+      </div> */
